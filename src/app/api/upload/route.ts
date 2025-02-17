@@ -9,6 +9,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       body,
       request,
       onBeforeGenerateToken: async (pathname) => {
+        console.log(pathname);
         // Implement your authentication logic here
         // For example, you could check if the user is logged in
         // const session = await getSession(request);
@@ -24,7 +25,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       },
       onUploadCompleted: async ({ blob, tokenPayload }) => {
         // This code runs after the upload is completed
-        console.log("Upload completed:", blob)
+        console.log("Upload completed:", blob, tokenPayload)
 
         // You can perform additional actions here, like saving the URL to a database
         // const { userId } = JSON.parse(tokenPayload);

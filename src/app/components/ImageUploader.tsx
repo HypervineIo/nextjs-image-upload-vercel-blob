@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState, useRef } from "react"
 import { upload } from "@vercel/blob/client"
+import Image from "next/image"
 
 export function ImageUploader() {
   const inputFileRef = useRef<HTMLInputElement>(null)
@@ -42,7 +43,7 @@ export function ImageUploader() {
       {uploadedUrl && (
         <div>
           <p>Uploaded successfully!</p>
-          <img src={uploadedUrl || "/placeholder.svg"} alt="Uploaded image" className="mt-4 max-w-full h-auto" />
+          <Image src={uploadedUrl || "/placeholder.svg"} alt="Uploaded image" className="mt-4 max-w-full h-auto" />
         </div>
       )}
     </div>
